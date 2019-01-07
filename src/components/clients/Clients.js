@@ -57,7 +57,7 @@ class Clients extends Component {
             </thead>
             <tbody>
               {clients.map(client => (
-                <tr key={clientInformation.id}>
+                <tr key={client.id}>
                   <td>
                     {client.firstName} {client.lastName}
                   </td>

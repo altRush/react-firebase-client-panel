@@ -9,6 +9,9 @@ import settingsReducer from './reducers/settingsReducer';
 
 import firebaseConfig from './credentials/firebaseConfig';
 
+// Redux-devtools-extension
+import { composeWithDevTools } from 'redux-devtools-extension';
+
 // react-redux-firebase config
 const rrfConfig = {
   userProfile: 'users',
@@ -55,10 +58,7 @@ const initialState = { settings: JSON.parse(localStorage.getItem('settings')) };
 const store = createStoreWithFirebase(
   rootReducer,
   initialState,
-  compose(
-    reactReduxFirebase(firebase),
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-  )
+  composeWithDevTools(reactReduxFirebase(firebase))
 );
 
 export default store;
